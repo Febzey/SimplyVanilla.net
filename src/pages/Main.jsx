@@ -14,7 +14,7 @@ export default function Main() {
         ws.onmessage = message => {
             const msg = JSON.parse(message.data);            
             setNames(msg)
-            console.log("loaded player list")
+            console.log("loaded player list successfully.")
             return () => ws.close();
         }
         return 

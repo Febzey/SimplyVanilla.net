@@ -164,8 +164,9 @@ export default function MainContent({ cardState, setCard, nameArray }) {
             {
                 //Footer
             }
-            <div className="bg-zinc-800 flex bg-opacity-90 border border-zinc-400 w-full rounded">
-                <p className="mx-auto text-neutral-300 py-2 text-sm">Website by: <a href="https://febzey.com" className="text-sky-300 hover:text-sky-400" target="_blank">Febzey#1854</a></p>
+            <div className="bg-zinc-800 items-center justify-center flex bg-opacity-90 border border-zinc-400 w-full rounded flex-row gap-6">
+                <p className="text-neutral-300 py-2 text-sm">Website by: <a href="https://febzey.com" className="text-sky-300 hover:text-sky-400" target="_blank">Febzey#1854</a></p>
+                <p className="text-neutral-300 text-sm">2021 &copy; SimplyVanilla.net</p>
             </div>
 
 
