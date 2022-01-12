@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Nav from '../Nav/Nav'
 import PlayerList from './PlayerList';
-import { FaReddit, FaWikipediaW, FaDiscord } from 'react-icons/fa';
-export default function MainContent({ cardState, setCard }) {
+import simplyvanilla from '../../images/simplyvanilla.png';
+import { FaReddit, FaWikipediaW, FaDiscord, FaDonate } from 'react-icons/fa';
+export default function MainContent({ cardState, setCard, nameArray }) {
 
     const [votingLinks] = useState([
         "https://www.planetminecraft.com/server/simply-vanilla-4319849/vote/",
@@ -16,11 +17,21 @@ export default function MainContent({ cardState, setCard }) {
         "https://minecraft-server.net/vote/Beautifulz/",
     ])
 
-    return (
-        <div className="w-full lg:max-w-[60%] lg:min-w-[58em] min-h-[75vh] mb-auto rounded-sm p-7 mx-auto flex flex-col gap-2">
+    const copy = async () => {
+        await navigator.clipboard.writeText('simplyvanilla.net');
+        alert('Copied to clipboard successfully.');
+    }
 
-            <div className=" flex mx-auto text-amber-50 font-semibold bg-zinc-800 bg-opacity-90 border border-zinc-400 w-full rounded">
-                <h1 className="mx-auto py-4 text-3xl md:text-7xl">SIMPLYVANILLA.NET</h1>
+
+    return (
+        <div className="shadow-2xl w-full lg:max-w-[60%] lg:min-w-[58em] min-h-[75vh] mb-auto rounded-sm p-7 mx-auto flex flex-col gap-2">
+
+            <div className="flex flex-row gap-6 items-center mx-auto text-amber-50 font-semibold justify-center  w-full rounded">
+                {
+                    //bg-zinc-800 bg-opacity-90 border border-zinc-400
+                }
+                <h1 className="ml-auto py-4 text-3xl md:text-7xl">SIMPLYVANILLA.NET</h1>
+                <img alt="simplyvanilla-logo" className="mx-auto" height="80" width="80" src={simplyvanilla}></img>
             </div>
 
             <Nav cardState={cardState} setCard={setCard} />
@@ -32,26 +43,55 @@ export default function MainContent({ cardState, setCard }) {
                      * Main content
                      */
                 }
+
                 <div className="mx-auto w-full h-full">
-                    <div className="overflow-auto py-8 px-5 text-neutral-100 tracking-wide w-full min-h-[56vh] max-h-[56vh] bg-zinc-800 border bg-opacity-90 border-zinc-400">
+                    <div className="overflow-auto pb-8 pt-4 px-5 text-neutral-200 tracking-wide w-full min-h-[56vh] max-h-[56vh] bg-zinc-800 border bg-opacity-90 border-zinc-400">
                         {
                             //Main content
                             cardState === 1 &&
-                            <div className="flex flex-col">
+                            <div className="flex flex-col text-neutral-200 gap-6 ">
 
-                                <div className="flex flex-col text-xs">
-                                    <p>Server IP: <span className="font-medium text-green-400 cursor-pointer hover:text-green-600">Simplyvanilla.net</span></p>
-                                    <p>Current version: <span className="font-medium text-red-500">1.17.1</span></p>
+                                <div className="mr-auto flex flex-col gap-0 text-xs">
+                                    <div className="flex flex-row gap-2">
+                                        <p>Server IP: <button className="font-medium text-sky-300 cursor-pointer hover:text-sky-400" onClick={() => copy()}>Simplyvanilla.net</button></p>
+                                        <p>Current version: <span className="font-medium text-red-300">1.17.1</span></p>
+                                    </div>
+                                    <p className="text-neutral-300 text-[0.65rem]">Click on the IP to copy to clipboard</p>
                                 </div>
 
-                                <h1 className="text-lg font-medium pt-4">Hello! Welcome to the Simply Vanilla Website! We are an Anarchy Server with NO HACKS!</h1>
-                                <p>"More information about the server here:"</p>
+                                <h1 className="text-2xl font-medium">Welcome to the SimplyVanilla website, we are a Minecraft Java Anarchy Server with absolutely no hacking!</h1>
+
+
+
+                                <div className="text-sm">
+                                    <h1 className="font-bold text-lg">Discord</h1>
+                                    <p>Discord is a free voice chatting software which is very easy to use and has good voice quality.
+                                        The link to join is <a href="https://discord.gg/dP7SqPF" className="text-sky-300 hover:text-sky-400">discord.gg/dP7SqPF</a> - Download Discord here: <a href="https://discordapp.com/download" className="text-sky-300 hover:text-sky-400">discordapp.com/download</a></p>
+                                </div>
+
+                                <div className="text-sm">
+                                    <h1 className="font-bold text-lg">Reddit</h1>
+                                    <p>Check out simplyvanilla's subreddit - <a href="https://www.reddit.com/r/SimplyVanillaMC/" className="text-sky-300 hover:text-sky-400" >reddit.com/r/SimplyVanillaMC</a></p>
+                                </div>
+
+                                <div className="text-sm">
+                                    <h1 className="font-bold text-lg">Wiki</h1>
+                                    <p>Consider checking out our player made wiki page at <a href="https://simplyvanilla.miraheze.org/wiki/Main_Page" className="text-sky-300 hover:text-sky-400">simplyvanilla.miraheze.org</a> (it's pretty interesting)</p>
+                                </div>
+
+                                <div className="text-sm">
+                                    <h1 className="font-bold text-lg">Server news:</h1>
+                                    <p>We just recently updated to 1.17.1 and working on 1.18! <span className="text-xs font-bold">— 12/11/2021</span></p>
+                                </div>
+
+
                             </div>
                         }
+
                         {
                             //Voting info
                             cardState === 2 &&
-                            <div className="flex flex-col gap-2 text-md md:text-lg">
+                            <div className="flex flex-col gap-2 text-md">
                                 <h1 className="font-medium text-2xl mx-auto pb-4">Voting Links:</h1>
                                 {
                                     votingLinks.map(link => (
@@ -64,6 +104,7 @@ export default function MainContent({ cardState, setCard }) {
 
                             </div>
                         }
+
                         {
                             //Rules info
                             cardState === 3 &&
@@ -79,11 +120,13 @@ export default function MainContent({ cardState, setCard }) {
                             </div>
 
                         }
+
                         {
                             //contact info
                             cardState === 4 &&
                             <p>To contact us, please join our <a className="text-blue-400 font-bold underline underline-offset-2 hover:text-blue-600" href="https://discord.gg/dP7SqPF">Discord Server</a> and create a ticket.</p>
                         }
+
                     </div>
                 </div>
 
@@ -93,7 +136,7 @@ export default function MainContent({ cardState, setCard }) {
                      */
                 }
                 <div className="md:ml-auto h-full">
-                    <PlayerList />
+                    <PlayerList nameArray={nameArray} />
                 </div>
 
             </div>
@@ -108,33 +151,23 @@ export default function MainContent({ cardState, setCard }) {
                 {
                     //Donation info
                 }
-                <div className="rounded w-full min-h-[20vh] bg-zinc-800 bg-opacity-90 border border-zinc-400 mt-2 py-4 px-5 text-neutral-200 text-center mr-auto gap-2 flex flex-col items-center">
-                    <h1 className="text-2xl font-medium text-md md:text-2xl">DONATIONS</h1>
-                    <p className="w-[20em] text-xs md:text-base">You can do your part and help keep the server up each month by heading to our donations page</p>
-                    <a href="https://simplyvanilla.buycraft.net/" target="_blank" className="hover:bg-emerald-700 bg-emerald-600 rounded px-1 py-1 w-[7em] text-center font-medium motion-safe transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-100">DONATE</a>
-                </div>
+                <div className="rounded w-full min-h-[20vh] bg-zinc-800 bg-opacity-90 border border-zinc-400 mt-2 py-4 px-5 text-neutral-200 text-center mr-auto gap-5 flex flex-col items-center">
 
-                {
-                    //Notable links
-                }
-                <div className="text-xs md:text-lg rounded w-full min-h-[20vh] bg-zinc-800 bg-opacity-90 border border-zinc-400 mt-2 py-4 px-6 text-neutral-200 mr-auto gap-2 flex flex-col items-center">
-                    <h1 className="text-2xl font-medium text-md md:text-2xl">Notable Links</h1>
+                    <div className="flex flex-col md:flex-row gap-3">
+                        <div className="flex flex-col ml-auto">
+                            <h1 className="text-2xl font-medium text-md md:text-2xl">DONATIONS</h1>
+                            <p className="w-[20em] text-xs md:text-base">You can do your part and help keep the server up each month by heading to our donations page</p>
+                        </div>
 
-                    <div className="flex flex-row gap-2 items-center">
-                        <FaReddit className="hidden md:block text-2xl text-orange-400" />
-                        <a href="https://www.reddit.com/r/SimplyVanillaMC/" target="_blank" className="text-blue-200 hover:text-blue-400">https://www.reddit.com/r/SimplyVanillaMC/</a>
+                        <a href="https://simplyvanilla.buycraft.net/" target="_blank" className="h-[70%] my-auto mx-auto md:mr-auto hover:bg-emerald-600 flex flex-row items-center cursor-pointer bg-emerald-500 rounded px-3 py-5 w-[7em] font-medium motion-safe transform hover:-translate-y-1 hover:scale-110 ease-in-out duration-100">
+                            <p className="mx-auto font-bold text-white">DONATE</p>
+                            <FaDonate className="text-white" />
+                        </a>
                     </div>
 
-                    <div className="flex flex-row gap-2 items-center">
-                        <FaWikipediaW className="hidden md:block text-2xl text-zinc-100" />
-                        <a href="https://simplyvanilla.miraheze.org/wiki/Main_Page" target="_blank" className="text-blue-200 hover:text-blue-400">https://simplyvanilla.miraheze.org/wiki/</a>
-                    </div>
-                
-                    <div className="flex flex-row gap-2 items-center">
-                        <FaDiscord className="hidden md:block text-2xl text-blue-400" />
-                        <a href="https://discord.gg/dP7SqPF" target="_blank" className="text-blue-200 hover:text-blue-400">https://discord.gg/dP7SqPF</a>
-                    </div>
-                
+
+                    <p className="text-sm text-zinc-300">Donate to receive priority queue and other cosmetic features.</p>
+
                 </div>
             </div>
 
@@ -143,7 +176,7 @@ export default function MainContent({ cardState, setCard }) {
                 //Footer
             }
             <div className="bg-zinc-800 flex bg-opacity-90 border border-zinc-400 w-full rounded">
-                <p className="mx-auto text-neutral-300 py-2 text-sm">Webiste by: <a href="https://febzey.com" className="hover:text-sky-300" target="_blank">Febzey#1854</a></p>
+                <p className="mx-auto text-neutral-300 py-2 text-sm">Website by: <a href="https://febzey.com" className="text-sky-300 hover:text-sky-400" target="_blank">Febzey#1854</a></p>
             </div>
 
 

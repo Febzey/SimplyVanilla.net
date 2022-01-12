@@ -4,8 +4,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: { 
+        Arimo: "'Arimo', sans-serif"
+      },
       backgroundImage: {
-        mainBg: "url('/src/images/topspawnedit.png')"
+        mainBg: "url('/src/images/bg4.png')"
       }
     },
   },
