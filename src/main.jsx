@@ -5,10 +5,7 @@ import Main from './pages/Main';
 
 render(
   <React.StrictMode>
-    <>
-      <Main />
-    </>
-
+    <Main />
   </React.StrictMode>,
   document.getElementById('root')
 )
