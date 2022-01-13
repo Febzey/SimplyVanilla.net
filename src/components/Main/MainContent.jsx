@@ -92,7 +92,6 @@ export default function MainContent({ cardState, setCard, nameArray }) {
                                 <p><span className="font-bold">Every 100 Votes = </span> Custom server MOTD(The message next to our name on the server list)!</p>
                                 <p><span className="font-bold">501 Votes = </span> Free priority queue!</p>
                                 <p><span className="font-bold">701 Votes = </span> Free donor rank!</p>
-
                             </div>
                         }
                         {
@@ -125,7 +124,7 @@ export default function MainContent({ cardState, setCard, nameArray }) {
                      */
                 }
                 <div className="md:ml-auto h-full">
-                    <PlayerList nameArray={nameArray}/>
+                    <PlayerList nameArray={nameArray} />
                 </div>
 
             </div>
