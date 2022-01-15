@@ -4,7 +4,7 @@
 
 # How to use
 
-1. **Read through the code to ensure I am not doing anything malicous**
+1. **Read through the code to ensure I am not doing anything malicous (running something blind is never a good idea)**
 2. Install nodeJS >=16.10.0
 3. Ensure nodeJS & NPM are installed.
 4. Install yarn with `npm install -g yarn`
