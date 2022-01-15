@@ -23,8 +23,8 @@ export default function MainContent({ cardState, setCard, nameArray }) {
 
     return (
         <div className="shadow-2xl w-full lg:max-w-[60%] lg:min-w-[58em] min-h-[75vh] mb-auto rounded-sm p-7 mx-auto flex flex-col gap-2">
-            <div className="flex flex-row gap-6 items-center mx-auto text-amber-50 font-semibold justify-center  w-full rounded">
-                <h1 className="ml-auto py-4 text-3xl md:text-7xl">SIMPLYVANILLA.NET</h1>
+            <div className="flex md:flex-row flex-col-reverse md:gap-6 gap-1 items-center mx-auto text-amber-50 font-semibold justify-center w-full rounded">
+                <h1 className="md:ml-auto py-4 text-3xl md:text-7xl">SIMPLYVANILLA.NET</h1>
                 <img alt="simplyvanilla-logo" className="mx-auto" height="80" width="80" src={simplyvanilla}></img>
             </div>
 
@@ -163,9 +163,9 @@ export default function MainContent({ cardState, setCard, nameArray }) {
             {
                 //Footer
             }
-            <div className="bg-zinc-800 items-center justify-center flex bg-opacity-90 border border-zinc-400 w-full rounded flex-row gap-6">
+            <div className="bg-zinc-800 items-center justify-center flex bg-opacity-90 border border-zinc-400 w-full rounded flex-col md:flex-row md:gap-6 gap-0 md:py-0 py-4">
                 <p className="text-neutral-300 py-2 text-sm">Website by: <a href="https://febzey.com" className="text-sky-300 hover:text-sky-400" target="_blank">Febzey#1854</a></p>
-                <p className="text-neutral-300 text-sm">2021 &copy; SimplyVanilla.net</p>
+                <p className="text-neutral-300 text-sm">2022 &copy; SimplyVanilla.net</p>
             </div>
 
 
