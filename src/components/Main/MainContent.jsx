@@ -32,7 +32,7 @@ export default function MainContent({ cardState, setCard, nameArray }) {
 
             <div className="flex flex-col md:flex-row gap-3 rounded">
                 <div className="mx-auto w-full h-full">
-                    <div className="overflow-auto pb-8 pt-4 px-5 text-neutral-200 tracking-wide w-full min-h-[56vh] max-h-[56vh] bg-zinc-800 border bg-opacity-90 border-zinc-400">
+                    <div className="rounded overflow-auto pb-8 pt-4 px-5 text-neutral-200 tracking-wide w-full min-h-[56vh] max-h-[56vh] bg-zinc-800 border bg-opacity-90 border-zinc-400">
                         {
                             //Main content
                             cardState === 1 &&
