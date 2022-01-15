@@ -1,4 +1,4 @@
-#How to use
+# How to use
 
 1. Install nodeJS >=16.10.0
 2. Ensure nodeJS & NPM are installed.
