@@ -1,3 +1,5 @@
+> React web application made for the Minecraft server simplyvanilla.net
+
 # How to use
 
 1. Install nodeJS >=16.10.0
