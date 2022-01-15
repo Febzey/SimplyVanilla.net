@@ -9,6 +9,6 @@
 3. Install nodeJS >=16.10.0
 4. Ensure nodeJS & NPM are installed.
 5. Install yarn with `npm install -g yarn`
-6. Install packages `yarn install` (package list in package.json)
+6. Install packages by typing `yarn install` (package list in package.json)
 7. Build the website `yarn build`
 8. Run the website `node serve.js`  
