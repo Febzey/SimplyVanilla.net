@@ -18,7 +18,7 @@ export default function Main() {
             /**
              * Setting player list.
              */
-            setNames(msg.playerlist ? msg.playerlist : [ ]);
+            setNames(prev => msg.playerlist ? msg.playerlist : prev);
 
             /**
              * Setting current tps
