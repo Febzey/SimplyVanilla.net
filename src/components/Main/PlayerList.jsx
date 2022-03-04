@@ -1,4 +1,4 @@
-export default function PlayerList({ nameArray }) {
+export default function PlayerList({ nameArray, tps }) {
 
     return (
         <div className="flex flex-col bg-zinc-800 bg-opacity-90 w-full rounded max-h-[56vh] min-h-[56vh] overflow-auto border border-zinc-400 px-5">
@@ -7,6 +7,7 @@ export default function PlayerList({ nameArray }) {
                 <div className="text-left py-2">
                     <p className="font-medium">Player List</p>
                     <p className="font-medium">Online: {nameArray.length}</p>
+                    <p className="font-medium">TPS: {tps}</p>
                 </div>
 
                 <div className="flex flex-col gap-1 border-t border-zinc-300 py-4 px-12 mr-auto ml-0 pl-0">

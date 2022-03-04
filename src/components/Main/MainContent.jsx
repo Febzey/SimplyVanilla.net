@@ -2,7 +2,7 @@ import Nav from '../Nav/Nav'
 import PlayerList from './PlayerList';
 import simplyvanilla from '../../images/simplyvanilla.png';
 import { FaReddit, FaWikipediaW, FaDiscord, FaDonate, FaNewspaper } from 'react-icons/fa';
-export default function MainContent({ cardState, setCard, nameArray }) {
+export default function MainContent({ cardState, setCard, nameArray, tps }) {
 
     const votingLinks = [
         "https://www.planetminecraft.com/server/simply-vanilla-4319849/vote/",
@@ -124,7 +124,7 @@ export default function MainContent({ cardState, setCard, nameArray }) {
                      */
                 }
                 <div className="md:ml-auto h-full">
-                    <PlayerList nameArray={nameArray} />
+                    <PlayerList nameArray={nameArray} tps={tps} />
                 </div>
 
             </div>

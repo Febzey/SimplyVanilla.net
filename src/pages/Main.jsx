@@ -3,6 +3,7 @@ import MainContent from '../components/Main/MainContent';
 export default function Main() {
     const [cardState, setCard] = useState(1);
     const [nameArray, setNames] = useState([]);
+    const [tps, setTps] = useState();
 
     useEffect(() => {
         /**
@@ -10,20 +11,29 @@ export default function Main() {
          * the live player list.
          * the IP: '167.99.0.51' is where forestbot is hosted.
          */
-        const ws = new WebSocket('ws://167.99.0.51:8383/playerlist');
+        const ws = new WebSocket(`${import.meta.env.VITE_APP_websocket_http}`);
         ws.onmessage = message => {
-            const msg = JSON.parse(message.data);            
-            setNames(msg)
-            console.log("loaded player list successfully.")
-            return () => ws.close();
+            const msg = JSON.parse(message.data);  
+            
+            /**
+             * Setting player list.
+             */
+            setNames(msg.playerlist ? msg.playerlist : [ ]);
+
+            /**
+             * Setting current tps
+             */
+            setTps(msg.tps ? msg.tsp : 20)
+
+            return;
         }
-        return 
+        return () => ws.close();
     },[])
 
     return (
         <div className="min-h-screen w-full bg-no-repeat bg-cover bg-center bg-mainBg bg-fixed">
             <div className="h-full w-full flex items-center justify-center py-24 ">
-                <MainContent cardState={cardState} setCard={setCard} nameArray={nameArray} />
+                <MainContent cardState={cardState} setCard={setCard} nameArray={nameArray} tps={tps} />
             </div>
         </div>
 
