@@ -23,7 +23,7 @@ export default function Main() {
             /**
              * Setting current tps
              */
-            setTps(msg.tps ? msg.tsp : 20)
+            setTps(msg.tps ? msg.tps : 20)
 
             return;
         }
